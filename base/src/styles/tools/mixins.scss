@@ -27,21 +27,13 @@
       transform: scale(1);
     }
 ==============================================================================*/
-@mixin prefix($property, $value, $prefixes) {
+@mixin prefix($property, $value, $prefixes:all) {
   @each $prefix in $prefixes {
-    @if $prefix == webkit {
-      -webkit-#{$property}: $value;
-    } @else if $prefix == moz {
-      -moz-#{$property}: $value;
-    } @else if $prefix == ms {
-      -ms-#{$property}: $value;
-    } @else if $prefix == o {
-      -o-#{$property}: $value;
-    } @else if $prefix == spec {
-      #{$property}: $value;
-    } @else  {
-      @warn 'Unrecognized prefix: #{$prefix}';
-    }
+    @if $prefix == webkit or $prefix == all { -webkit-#{$property}: $value; }
+    @if $prefix == moz or $prefix == all { -moz-#{$property}: $value; }
+    @if $prefix == ms or $prefix == all { -ms-#{$property}: $value; }
+    @if $prefix == o or $prefix == all { -o-#{$property}: $value; }
+    @if $prefix == spec or $prefix == all { #{$property}: $value; }
   }
 }
 
