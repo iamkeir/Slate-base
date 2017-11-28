@@ -13,16 +13,26 @@
 
 ---
 
-development:
-  password:
-  theme_id:
-  store: your-shop.myshopify.com
-  ignore_files:
-    #- settings_data.json # Uncomment this line to avoid resetting theme settings
+# production:
+#   password:
+#   theme_id: "live"
+#   store: your-shop.myshopify.com
+#   ignore_files:
+#     #- settings_data.json # Uncomment this line to avoid resetting theme settings
 
-production:
-  password:
-  theme_id: "live"
-  store: your-shop.myshopify.com
+development:
+  password: 67d1a6ef355f5093de11acb57dd18241
+  theme_id: 500301837
+  store: iamkeir-playground.myshopify.com
+  # readonly: true # Uncomment to put in readonly mode
   ignore_files:
-    #- settings_data.json # Uncomment this line to avoid resetting theme settings
+    # Prevent overwrite of theme settings & locale data online (comment out to allow overwrite)
+    # If you want latest theme settings from online, uncomment then use: theme download --dir=src
+    - config/settings_data.json
+    - locales/*
+    # Ignoring Slate's auto-generated files when using `theme download --dir=src`
+    - src/snippets/icon-*
+    - src/assets/theme.js
+    - src/assets/vendor.js
+    - src/assets/theme.scss.liquid
+    - src/assets/checkout.scss.liquid
