@@ -12,7 +12,7 @@ dist
 upload
 deploy.log
 theme.lock
-config.yml
+# config.yml
 
 # Compiled source #
 ###################
