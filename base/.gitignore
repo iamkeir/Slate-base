@@ -11,6 +11,7 @@ node_modules
 dist
 upload
 deploy.log
+theme.lock
 config.yml
 
 # Compiled source #
